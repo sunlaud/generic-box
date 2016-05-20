@@ -1,0 +1,14 @@
+---
+
+- name: Clone oh-my-zsh repo
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest="{{ generic_box_user_home }}/.oh-my-zsh" depth=1 update=no
+
+- name: Copy custom zsh theme
+  copy: src=sunny.zsh-theme dest="{{ generic_box_user_home }}/.oh-my-zsh/themes/"
+
+- name: Render zshrc
+  template: src=zshrc.template dest="{{ generic_box_user_home }}/.zshrc" backup=yes
+
+- name: Set zsh as default shell
+  sudo: yes
+  user: name="{{ generic_box_user }}" shell=/bin/zsh

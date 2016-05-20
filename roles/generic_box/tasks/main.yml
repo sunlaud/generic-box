@@ -1,0 +1,7 @@
+---
+
+- include: install_software.yml
+- include: zsh_config.yml
+
+
+

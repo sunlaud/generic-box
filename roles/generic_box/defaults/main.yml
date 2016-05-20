@@ -1,0 +1,9 @@
+---
+
+generic_box_user_home: "{{ ansible_env.HOME }}"
+generic_box_user: "{{ ansible_user_id }}"
+generic_box_zsh_theme: sunny
+generic_box_oh_my_zsh_plugins:
+  - git
+  - history-substring-search
+  - mvn
