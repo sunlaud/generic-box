@@ -1,0 +1,41 @@
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	pi=cherry-pick
+	pin = cherry-pick --no-commit
+	br=branch -vv
+
+	d = diff
+	ds = diff --name-status
+	dw = diff --color-words --word-diff-regex='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+	dc = diff --cached
+
+	lg = log --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %C(cyan)[%an%Creset%Cgreen @ %ad]%Creset' --date=iso --graph -n 20
+	lga = log --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %C(cyan)[%an%Creset%Cgreen @ %ad]%Creset' --date=iso --graph -n 20 --all
+    lgf = log --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %C(cyan)[%an%Creset%Cgreen @ %ad]%Creset' --date=iso --graph
+    lgaf = log --pretty=format:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %C(cyan)[%an%Creset%Cgreen @ %ad]%Creset' --date=iso --graph --all
+
+	review = !git push --force origin HEAD:refs/for/develop
+
+	ignore = update-index --assume-unchanged --verbose
+	unignore = update-index --no-assume-unchanged --verbose
+	ignoreall = !git listchanged | xargs git ignore
+	unignoreall = !git listignored | xargs git unignore
+	listignored = !git ls-files -v | grep "^[[:lower:]]" | sed -e 's/^\\s*\\S\\+\\s*//'
+	listchanged = !git st --porcelain | sed -e 's/^\\s*\\S\\+\\s*//'
+
+[core]
+	pager = cat
+	whitespace = trailing-space,space-before-tab,tab-in-indent,tabwidth=4
+    autocrlf = false
+    logallrefupdates = true
+	fileMode = false
+
+[push]
+	default = simple
+[pull]
+	rebase = true
+
+
+

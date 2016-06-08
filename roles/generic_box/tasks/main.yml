@@ -2,6 +2,7 @@
 
 - include: install_software.yml
 - include: zsh_config.yml
+- include: git_config.yml
 
 
 
